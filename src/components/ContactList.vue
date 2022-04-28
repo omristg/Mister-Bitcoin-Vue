@@ -35,7 +35,6 @@ export default {
     methods: {
         onRemoveContact(id) {
             this.$emit('removeContact', id)
-            // this.$store.dispatch({ type: 'removeContact', id })
         }
     },
 
