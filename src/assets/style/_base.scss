@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    // font-family: sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    margin: 0;
+    background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+ul {
+    margin-block-start: unset;
+    margin-block-end: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+    padding-inline-start: unset;
+}
+
+select {
+    cursor: pointer;
+}
+
+button,
+a.btn {
+    border: unset;
+    background: unset;
+    padding: 0rem 0.3rem;
+    outline: none;
+    text-decoration: none;
+    border: 1px solid black;
+    color: black;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: calc(0.9 * 1rem);
+    font-weight: inherit;
+}
+button:hover {
+    cursor: pointer;
+}
+button:active,
+a.btn:active {
+    color: white;
+    border-color: white;
+}
+
+a {
+    padding: 0rem 0.3rem;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: calc(0.9 * 1rem);
+    font-weight: inherit;
+}
+
+input,
+textarea {
+    width: 200px;
+    outline: none;
+}
+
+input,
+select {
+    padding: 5px;
+    padding-left: none;
+    border: unset;
+    background: unset;
+    border-bottom: 1px solid black;
+}
+
+textarea {
+    height: 75px;
+}
+
+a,
+.router-link {
+    color: unset;
+}
+
+header {
+    padding: 5px;
+}
+
+code {
+    // border-radius: 2px;
+    // padding: 2px 4px;
+    background-color: var(--el-color-primary-light-9);
+    color: var(--el-color-primary);
+  }
