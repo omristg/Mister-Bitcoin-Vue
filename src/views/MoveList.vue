@@ -1,9 +1,7 @@
 <template>
     <div class="move-list">
         <h4>{{ title }}</h4>
-        <MovePreview v-if="movesToShow" v-for="(move, idx) in movesToShow" :key="idx" :move="move"
-            :isPerContact="isPerContact" />
-        <div v-else>Please login first</div>
+        <MovePreview v-for="(move, idx) in movesToShow" :key="idx" :move="move" :isPerContact="isPerContact" />
     </div>
 </template>
 
@@ -38,7 +36,8 @@ export default {
 
 <style lang="scss" scoped>
 .move-list {
-    width: 30rem;
+    // width: 30rem;
+    width: 80%;
     margin-bottom: 0.5rem;
 }
 </style>

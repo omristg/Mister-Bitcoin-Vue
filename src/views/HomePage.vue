@@ -8,10 +8,10 @@
             <div>The current Bitcoin Rate is {{ currRate }}</div>
             <template v-if="!user">
                 <div>Please login first</div>
-                <el-button @click="onLogin" type="primary" plain>Login</el-button>
+                <el-button class="login-btn" @click="onLogin" type="primary" plain>Login</el-button>
             </template>
         </div>
-        <MoveList :user="user"  :isPerContact="false"/>
+        <MoveList v-if="user" :user="user" :isPerContact="false" />
     </section>
 </template>
 
@@ -67,6 +67,10 @@ export default {
         font-size: 1.2rem;
         color: white;
         text-align: center;
+    }
+
+    .login-btn {
+        margin-top: 1rem;
     }
 }
 </style>
