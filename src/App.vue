@@ -19,7 +19,6 @@ export default {
 		await this.$store.dispatch({ type: 'loadContacts' });
 		await this.$store.dispatch({ type: 'loadUsers' });
 		const user = this.$store.getters.loggedinUser
-		// console.log(user);
 		if (user) {
 			this.$store.dispatch({ type: 'setUpdatedUser', userId: user._id })
 		}

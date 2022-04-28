@@ -2,7 +2,7 @@
     <section v-if="contact" class="contact-details">
         <div class="details-container flex column justify-center align-start">
             <div class="img-container">
-                <img :src="`https://robohash.org/${contact._id}`" alt />
+                <img :src="`https://robohash.org/${contact._id}?size=200x200`" alt />
             </div>
             <div class="info-line">
                 <span>Name:</span>

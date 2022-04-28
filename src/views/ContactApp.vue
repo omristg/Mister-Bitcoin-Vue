@@ -8,11 +8,7 @@
                 <span class="fas plus"></span> Add contact
             </el-button>
         </div>
-        <ContactList
-            :contacts="contactsToShow"
-            :filterBy="filterBy"
-            @removeContact="onRemoveContact"
-        />
+        <ContactList :contacts="contactsToShow" :filterBy="filterBy" @removeContact="onRemoveContact" />
     </main>
 </template>
 
@@ -53,9 +49,11 @@ export default {
                 const emailRegex = new RegExp(this.filterBy.email, 'i')
                 const phoneRegex = new RegExp(this.filterBy.phone, 'i')
                 return this.contacts.filter(contact => {
-                    return nameRegex.test(contact.name) &&
+                    return (
+                        nameRegex.test(contact.name) &&
                         emailRegex.test(contact.email) &&
                         phoneRegex.test(contact.phone)
+                    )
                 })
             }
         },
@@ -67,18 +65,21 @@ export default {
 <style lang="scss" scoped>
 .contant-app {
     margin-bottom: 1rem;
-    .top-actions-bar{
+
+    .top-actions-bar {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1.5rem;
     }
+
     .btn-add {
         span {
             padding-bottom: 3px;
             margin-inline-end: 0.3rem;
         }
     }
+
     h2 {
         text-align: center;
         margin: 1rem auto;
