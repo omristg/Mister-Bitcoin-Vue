@@ -36,10 +36,10 @@ export default {
                 labels: bitcoinService.getXTimeValues(values),
                 datasets: [
                     {
+                        label: name,
                         data: values.map(value => value.y),
                         backgroundColor: bitcoinService.getPointColorsFromValues(values),
-                        label: name,
-                        pointRadius: 2,
+                        pointRadius: 3,
                         pointHoverRadius: 8
                     },
                 ],
@@ -49,14 +49,41 @@ export default {
             const { name, description, values } = this.marketPrice
             const period = bitcoinService.getFormattedPeriod(values)
             return {
+                scales: {
+                    x: {
+                        ticks: {
+                            maxTicksLimit: 8,
+                            maxRotation: 0,
+                            minRotation: 0,
+                            align: 'start'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            callback: (value) => {
+                                return (value / 1000) + 'K';
+                            }
+                        }
+                    },
+                },
                 plugins: {
+                    legend: {
+                        display: false
+                    },
                     title: {
                         display: true,
                         text: `${name} at ${period}`,
+                        font: {
+                            family: 'Roboto', weight: '800', size: 15
+                        }
                     },
                     subtitle: {
                         display: true,
-                        text: description
+                        text: description,
+                        padding: { bottom: 15 },
+                        font: {
+                            family: 'Roboto', weight: '500', size: 12
+                        }
                     }
                 }
             }

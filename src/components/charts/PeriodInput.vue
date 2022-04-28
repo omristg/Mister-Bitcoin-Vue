@@ -1,24 +1,15 @@
 <template>
     <div class="period-inputs">
         <form @submit.prevent="onSubmitPeriod">
-            <el-input-number
-                v-model="period.count"
-                controls-position="right"
-                @change="(count) => period.count = count"
-                :min="1"
-                size="small"
-            />
+            <el-input-number v-model="period.count" controls-position="right" @change="(count) => period.count = count"
+                :min="1" size="small" />
             <el-select v-model="period.segement" class="m-2" size="small">
-                <el-option
-                    v-for="item in selectOpts"
-                    :key="item.value"
-                    :label="item.label + suffix"
-                    :value="item.value"
-                ></el-option>
+                <el-option v-for="item in selectOpts" :key="item.value" :label="item.label + suffix"
+                    :value="item.value"></el-option>
             </el-select>
             <el-button @click="onSubmitPeriod" size="small" type="primary">Set</el-button>
         </form>
-        <el-radio-group v-model="groupRadioModel" @change="onSetPeriod" size="small">
+        <el-radio-group class="period-radio-group" v-model="groupRadioModel" @change="onSetPeriod" size="small">
             <el-radio-button v-for="item in groupRadioOps" :label="item.label">{{ item.txt }}</el-radio-button>
         </el-radio-group>
     </div>
@@ -65,17 +56,35 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .period-inputs {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 1rem;
     align-items: center;
     margin: 1.5rem auto;
+
+    @media (min-width: 762px) {
+        flex-direction: row;
+        gap: unset;
+    }
+
     form {
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 0.3rem;
+    }
+
+    .period-radio-group .el-radio-button--small .el-radio-button__inner {
+        font-size: 11px;
+        padding: 5px 8px;
+
+        @media (min-width: 500px) {
+            font-size: 12px;
+            padding: 5px 11px;
+        }
     }
 }
 </style>
